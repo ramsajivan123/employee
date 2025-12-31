@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculater.com</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+             background: linear-gradient(320deg,aqua,#f8e868,rgb(255, 128, 0));
+             padding:20px;
+        }
+        table{
+            background-color: rgba(0, 0, 0, 0.654);
+            border-radius: 14px;
+            padding: 20px 20px;
+        }  
+        #value{
+            height: 70px;
+            width: 370px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: white;
+            margin-top: 30px;
+            font-size: 29px;
+            padding-left: 20px;
+        }
+        .btn{
+            height: 60px;
+            width: 80px;
+            font-size: 27px;
+            border-radius: 12px;
+            color: white;
+            background-color: rgb(240, 5, 76);
+            margin-top: 30px;
+            margin-left: 10px;
+        }
+        .btn:hover{
+            background-color: inherit;
+            color: rgb(255, 255, 255);
+        }
+        .btn:active{
+            background-color: rgb(251, 184, 60);
+        }
+
+        .ac{
+            height: 60px;
+            width: 198px;
+            font-size: 27px;
+            border-radius: 10px;
+            color: rgb(0, 0, 0);
+            background-color: white;
+            margin-top: 30px;
+            margin-left: 15px; 
+        }
+        .ac:hover{
+            background-color: inherit;
+            color: rgb(255, 255, 255);
+        }
+        .ac:active{
+            background-color: rgb(251, 184, 60);
+        }
+        .num{
+            height: 60px;
+            width: 90px;
+            font-size: 27px;
+            border-radius: 10px;
+            color: rgb(0, 0, 0);
+            background-color: white;
+            margin-top: 30px;
+            margin-left: 15px;
+        }
+        .num:hover{
+            background-color: inherit;
+            color: rgb(255, 255, 255);
+        }
+        .num:active{
+            background-color: rgb(251, 184, 60);
+        }
+    </style>
+
+</head>
+<body>
+    <script>
+        function pick(val){
+            document.getElementById("value").value +=val;
+        }
+
+        function solve(){
+            var x = document.getElementById("value").value;
+            var y = eval(x);
+            document.getElementById("value").value = y;
+        }
+        
+        function cut(){
+            document.getElementById("value").value = "";
+        }
+    </script>
+    <center>
+    <table>
+        <tr>
+            <th colspan="4"><input type="text" id="value"></th>
+            
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="button" value="AC" class="ac" onclick="cut()"></td>
+            <td><input type="button" value="=" class="num" onclick="solve()" style="background-color: lime; color: black;"></td>
+            <td><input type="button" value="÷" class="btn" onclick="pick('/')"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="7" class="num" onclick="pick(7)"></td>
+            <td><input type="button" value="8" class="num" onclick="pick(8)"></td>
+            <td><input type="button" value="9" class="num" onclick="pick(9)"></td>
+            <td><input type="button" value="×" class="btn" onclick="pick('*')"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="4" class="num" onclick="pick(4)"></td>
+            <td><input type="button" value="5" class="num" onclick="pick(5)"></td>
+            <td><input type="button" value="6" class="num" onclick="pick(6)"></td>
+            <td><input type="button" value="−" class="btn" onclick="pick('-')"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="1" class="num" onclick="pick(1)"></td>
+            <td><input type="button" value="2" class="num" onclick="pick(2)"></td>
+            <td><input type="button" value="3" class="num" onclick="pick(3)"></td>
+            <td><input type="button" value="+" class="btn" onclick="pick('+')"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="button" value="0" class="ac" onclick="pick(0)"></td>
+            <td><input type="button" value="." class="num" onclick="pick('.')"></td>
+            <td><input type="button" value="%" class="btn" onclick="pick('%')"></td>
+        </tr>
+    </table>
+    </center>
+</body>
+</html>

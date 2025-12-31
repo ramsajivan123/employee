@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        
+        .maindiv{
+            height: 35px;
+            width: 95.45%;
+           background-color: #ff040c; 
+            color: black;
+            padding: 10px 30px;
+            text-align: right;
+            position: sticky;
+            top: 0px;
+            border: 1px solid rgb(72, 71, 71);
+            box-shadow: 0 2px 4px  rgb(253, 252, 252);
+        }
+        .maindiv li{
+            display: inline;
+            padding: 0 10px;
+        }
+        .nav-base li a{
+            text-decoration: none;
+            font-size: 30px;
+            color: black;
+            background-color: rgb(232, 232, 230);
+            border: 1px solid rgb(12, 12, 12);
+            border-radius: 7px;
+            padding: 0 10px;
+           
+        }
+        .nav-base li a:hover{
+            color: rgb(254, 254, 255);
+            background-color: rgb(1, 5, 252);
+            transition: all 1s;
+            box-shadow: 0 2px 3px 2px rgb(1, 1, 22);
+        }
+
+        /* hamrbor*/
+        #check{
+            float: right;
+        }
+        .bor{
+            height: 27px;
+            width: 30px;
+            background-color: #fafafa;
+            border-radius: 6px;
+            float: left;
+            margin-top: -3px;
+            margin-left: -16px;
+            padding: 5px;
+            
+           /* background-image: url('https://cdn1.iconfinder.com/data/icons/jumpicon-basic-ui-glyph-1/32/-_Hamburger-Menu-More-Navigation--512.png');
+            background-repeat: no-repeat;
+            background-size: cover; */
+        }
+        
+        .bor1{
+            height: 5px;
+            width: 30px;
+            background-color: #000000;
+            border-radius: 8px;
+        }
+        .bor2{
+            height: 5px;
+            width: 30px;
+            background-color: #000000;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+        .bor3{
+            height: 5px;
+            width: 30px;
+            background-color: #000000;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+            
+        .nav_bor{
+            margin-top: 10px;
+            margin-left: -33px;
+        }
+        .nav_bor ul{
+            display: block;
+            position: absolute;
+            background-color: rgb(0, 0, 0);
+            height: 400px;
+            width: 250px;
+            text-align: center;
+            padding-top: 50px;
+            margin-left: -250px;
+            border-radius: 5px;
+        }
+        
+        .nav_bor ul li a{
+            padding: 50px 30px;
+            font-size: 40px;
+            font-family: sans-serif;
+            text-decoration: none;
+            color: rgb(42, 250, 0);
+           margin-top: 30px;
+           font-weight: bold;
+        }
+        #check:checked ~ .nav_bor ul{
+            margin-left: -20px;
+            transition: all 2s;
+            background-color: rgba(0, 0, 18, 0.775);
+            
+        }
+        #check{
+            display: none;
+        }
+        li.Active  a{
+            color: rgb(255, 253, 253);
+            background-color: rgb(1, 1, 252);
+            transition: all 1s;
+            box-shadow: 0 2px 3px 2px rgb(1, 1, 22);
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <div class="maindiv">
+        <input type="checkbox" id="check">
+        <label for="check">
+            <div class="bor">
+                <div class="bor1"></div>
+                <div class="bor2"></div>
+                <div class="bor3"></div>
+            </div> 
+        </label>
+    
+        <ul class="nav-base">
+            <li class="{% if request.path == '/' %} Active {% endif %}"><a href="{% url 'index' %}"><i class="fa-solid fa-house-user fa-sm"></i>Home</a></li>
+            <li class="{% if request.path == '/login' %} Active {% endif %}"><a href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket fa-sm"></i>Login</a></li>
+            <li class="{% if request.path == '/about_page' %} Active {% endif %}"><a href="{% url 'about_page' %}"><i class="fa-solid fa-address-card fa-sm"></i>About</a></li>
+            <li class="{% if request.path == '/feedback' %} Active {% endif %}"><a href="{% url 'feedback_page' %}"><i class="fa-solid fa-comment-dots fa-sm"></i>Feedback</a></li>
+        </ul>
+    
+    <div class="nav_bor">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li><br><br>
+            <li><a href="{% url 'about_page' %}">About</a></li><br><br>
+            <li><a href="{% url 'login' %}">Login</a></li><br><br>
+            <li><a href="{% url 'gallery' %}">Gallery</a></li><br><br>
+            <li><a href="{% url 'feedback_page' %}">Feedback</a></li>
+        </ul>
+    </div>
+
+    </div>
+    
+</body>
+</html>

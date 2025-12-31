@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+
+           background-image:url('https://t4.ftcdn.net/jpg/06/91/05/19/360_F_691051962_GFhQPOAXABmf7l706q89b2PFh6FnB1kI.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        h1{
+           
+           padding: 10px;
+            text-align: center;
+            background-color: rgb(254, 184, 20);
+            color: rgb(6, 6, 6);
+            border-radius: 4px;
+            font-size: 37px;
+            margin-bottom: 30px;
+            position: sticky;
+            top:0px;
+        }
+        table{
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+            border-radius: 8px;
+            overflow: hidden;
+            border-collapse: collapse;
+        }
+        th,td{
+            padding: 14px 13px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 14px;
+
+        }
+        th{
+            height: 60px;
+            background-color: #0f029d;
+            color: white;
+            text-transform:uppercase ;
+            font-size: 16px;
+        }
+        th:hover{
+            background-color: #1704e1;
+           color: rgb(249, 247, 247);
+        }
+        
+        .edit_btn{
+             padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 5px;
+            background-color: #069d01;
+             color: white;
+            
+        }
+        .edit_btn:hover{
+           background-color: #2ffc06;
+             color: rgb(14, 14, 14);
+        }
+        .del_btn{
+             padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 5px;
+            background-color: #f80303;
+            color: white;
+            margin-left: 10px;
+
+        }
+        .del_btn:hover{
+            background-color: #f80542;
+             color: rgb(14, 14, 14);
+        }
+
+       .lfee{
+        color: #f91105;
+        font-weight:bold ;
+       }
+       .lfee0{
+        color: #04b409;
+        font-weight:bold ;
+       }
+
+     form{
+            background-color: #f58506;
+            padding: 25px;
+            border: 2px solid white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgb(217, 216, 216);
+            margin: auto;
+            max-width: 600px;
+        }
+        label{
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .input{
+            width: 100%;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .btn{
+            padding: 10px 20px;
+            background-color: #0e04c7;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3 ease;
+        }
+        .btn:hover{
+            background-color: blue;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>All Feedback Recoards</h1>
+
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Massage</th>
+        </tr>
+        {% for x in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{x.full_name}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.massage}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <br>
+     <a href="{% url 'dashboard' %}" class="out" style="color: white;">Back to Dashboard</a>
+    
+     <br> <br>
+</body>
+</html>

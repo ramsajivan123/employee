@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About page</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            
+            padding: 0px;
+            margin-bottom: 0px;
+            /*background-image:url('https://i.pinimg.com/736x/28/e5/71/28e571516598f0e2c56d936df3a46df4.jpg');
+            background-repeat: no-repeat;
+            background-size:100% 680px;*/
+            
+            animation-name: about;
+            animation-duration: 20s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes about{
+            0%{
+                
+                background-image: url('https://t3.ftcdn.net/jpg/06/34/38/26/360_F_634382619_pvMY6CtgERYA8401Zhf6HiwtWduWXLgp.jpg');
+                background-repeat: no-repeat;
+                background-size: 100% 630px;
+            }
+            55%{
+                background-image: url('https://t4.ftcdn.net/jpg/05/68/63/11/360_F_568631153_ygTLlsjLeVtMrGDSUbqia6VD2GsdbHJx.jpg');
+                background-repeat: no-repeat;
+                background-size: 100% 630px;
+            }
+            100%{
+                background-image: url('https://c1.wallpaperflare.com/preview/507/134/330/evening-sun-setting-sunset.jpg');
+                background-repeat: no-repeat;
+                background-size: 100% 630px;
+            }
+        }
+        /*
+        #maindiv{
+            height:570px ;
+            width: 50%;
+            margin-top:5px;
+            margin-left: 660px;
+            border: 2px solid rgb(250, 3, 3);
+            border-radius: 8px;
+            color: white;
+            background-image:url('https://i.pinimg.com/736x/ed/c6/8f/edc68fa0d917de9df290f4d57458ccbb.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 530px;
+            animation-name:success;
+            animation-duration:20s ;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        #maindiv:hover{
+            box-shadow: 0 3px 4px 8px white;
+        }*/
+
+        #head{
+            height:50px;
+            width: 100%;
+            /*text-align: right;*/
+           margin-top: 20px;
+          margin-left: 45px;
+        }
+
+        #head li{
+            display: inline;
+             
+        }
+
+        #head li a{
+            font-size: 22px;
+            padding:5px 16px;
+            text-decoration: none;
+            position: relative;
+            font-size: 22px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            top:10px;
+            color: white;
+            
+        }
+
+        #head li a:hover{
+            background-color: rgba(54, 53, 53, 0.24);
+            border: none;
+            border-radius: 8px;
+            color: rgb(254, 13, 0);
+            box-shadow: 0 1px 3px wheat;
+        }
+        /*
+        #div2{
+            height: 500px;
+            width:100%;
+        }
+        #div2 h1{
+            font-size: 60px;
+            color: aliceblue;
+            margin-top: 20px;
+            margin-right: 580px;
+            
+            
+        }
+        /*
+        .pic{
+            height:310px;
+            width: 600px;
+           
+            margin-left:270px;
+            border: 1px solid rgb(38, 255, 0);
+            animation-name:success;
+            animation-duration:8s ;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+            box-shadow:0 0 6px 9px lime;
+        }
+
+        @keyframes success{
+            0%{
+                background-image:url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhB_pUozy5oYFFHb4txkyWUdM80adabOtUUdM3KmVCZN8OskmgPHreG4im8yzScbyGkWWOwR_-lGoSfhJNmQmB5ReRCczqZw9uoI9nbQedPmTp8UlJstNOH-pUzeFyFdaH_3SnlX0Nrik/s1600/2-line-motivational-status-in-english+%25281%2529.png');
+                background-size: 100% 100%;
+            }   
+            33%{
+                background-image:url('https://www.mastshayari.co.in/wp-content/uploads/2024/01/motivational-quotes.jpg');
+                background-size: 100% 100%;
+            }
+            66%{
+                background-image:url('https://shayari-in-english.com/wp-content/uploads/2024/11/No-30-sucess-shayari-in-english.png');
+                background-size: 100% 100%;
+            }
+            100%{
+                background-image:url('https://sad-shayari.net/wp-content/uploads/2025/03/Motivational-Shayari-in-English-for-Work-Career.webp');
+                background-size: 100% 100%;
+            }
+        }*/
+        
+        h1{
+            text-align: center;
+            margin-top: 350px;
+           font-size: 65px;
+            font-family: sans-serif;
+            color: #ffffff;
+            text-shadow: 2px 2px rgb(14, 13, 13) ;
+        }
+        
+    </style>
+</head>
+<body>
+    {% include 'navigation.html' %} 
+    
+    
+        <div id="maindiv">
+            
+            <div id="head"> 
+                <ul>
+                    <li><a href="{% url 'index' %}">HOME</a></li>
+                    <li><a href="{% url 'gallery' %}">GALLERY</a></li>
+                    <li><a href="{% static 'html/project.html' %}">PROJECT IDEAS</a></li>
+                    
+                </ul>
+            </div>
+                <div class="pic">
+                   <h1>Welcome to  About  Page</h1> 
+                </div>
+            </div>
+
+            
+
+        </div>
+    
+    {% include 'footer.html' %}
+</body>
+</html>
+

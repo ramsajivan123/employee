@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-image:url('https://www.shutterstock.com/image-vector/3d-blue-arrow-sign-double-600nw-2510826965.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+    
+        }
+        .feedback{
+            text-align: center;
+            height: 520px;
+            width: 400px;
+            margin-top: 30px;
+            margin-left: 70px;
+            border-radius: 15px;
+            background-color: rgba(254, 2, 128, 0.937);
+            box-shadow: 0 4px 3px 7px rgb(248, 164, 9);
+        }
+
+        input{
+              margin-top: 5px;
+            height: 35px;
+            width: 300px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            margin-bottom: 35px;
+            padding-left: 14px;
+            font-size: 20px;
+        }
+        label{
+          
+            font-size: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            
+        }
+        
+        #sum{
+            
+            height: 50px;
+            width: 130px;
+            border-radius: 10px;
+            background-color: rgb(14, 0, 172);
+            color: rgb(248, 246, 246);
+            border: 1px solid black;
+            font-size: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding-right: 10px;
+        }
+         #sum:hover{
+            background-color: rgb(51, 245, 3);
+            color: rgb(6, 6, 6);
+            
+        }
+        h1{
+            border-radius: 5px;
+            padding: 5px;
+            text-align: center;
+            font-size: 45px;
+            background-color: rgb(254, 184, 20);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Change password</h1>
+    <div class="feedback">
+        <h1>Change</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label>Cerrent password </label>
+            <input type="password" name="cerrent_p" required >
+        <br>   
+            <label>New Password </label>
+            <input type="password" name="new_p" required >
+        <br>   
+            <label>Conferm Password </label>   
+            <input type="password" name="conferm_p" required >
+        <br>
+            <input type="submit" value="Change" id="sum">
+        </form>
+    </div>
+
+    {% if error == "no" %}
+    <script>
+        alert("Password changed");
+        window.location = ("{% url 'login' %}")   
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        alert("New password and Conferm password is different");
+    </script>
+    {% endif %}
+
+    {% if error == "old" %}
+    <script>
+        alert("Cerrent password is wrong");
+    </script>
+    {% endif %}
+</body>
+</html>

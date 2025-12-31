@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        h1{
+            padding: 5px;
+            text-align: center;
+            font-size: 45px;
+            background-color: rgb(254, 184, 20);
+
+        }
+        body{
+           background-image:url('https://t4.ftcdn.net/jpg/06/91/05/19/360_F_691051962_GFhQPOAXABmf7l706q89b2PFh6FnB1kI.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 950px;
+        }
+        .employee{
+            width: 530px;
+            margin-top: 50px;
+            text-align: center;
+            box-shadow: 0 4px 5px 8px rgb(224, 223, 223);
+            border: 2px solid rgb(10, 10, 10);
+            border-radius: 14px;
+            background-color: rgb(241, 250, 138);
+        }
+        .employee:hover{
+            box-shadow: 0 4px 5px 8px rgb(243, 2, 2);
+            border: 2px solid rgb(10, 10, 10);
+            border-radius: 18px;
+        }
+        input{
+            height: 30px;
+            width: 350px;
+            border-radius: 5px;
+            margin-top: 30px;
+            padding-left: 20px;
+            margin-right: 20px;
+            font-size: 17px;
+            background-color: rgb(251, 221, 245);
+        }
+        .redi{
+            height: 20px;
+            width: 20px;
+            margin-left: 50px;
+            border: none;
+            accent-color: rgb(227, 4, 4);
+        
+        }
+        label{
+            margin-left: 15px;
+            font-size: 24px;
+            color: rgb(2, 2, 2);
+            
+        }
+        select{
+            height: 30px;
+            width: 350px;
+            border-radius: 5px;
+            margin-top: 30px;
+            padding-left: 20px;
+            font-size: large;
+        }
+        #sum{
+            background-color: rgb(0, 24, 181);
+            color: rgb(250, 249, 249);
+            width: 150px;
+            height: 44px;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 50px;
+            margin-bottom: 40px;
+            padding: 5px;
+            border: none;
+            border-radius: 8px;
+        }
+        #sum:hover{
+            background-color: rgb(4, 38, 229);
+            color: rgb(4, 4, 4);
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Employee Recoards</h1>
+    <center>
+    <div class="employee">
+        <h1 style="background-color: rgb(241, 250, 138);">Fill This</h1>
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label>Full Name :</label>
+            <input type="text" name="fname" placeholder="Full name" required>
+        <br>
+            <label>Email :</label>
+            <input type="email" name="email" placeholder="Email" required>
+        <br>
+            <label>Contect No:</label>
+            <input type="tel" name="phone" placeholder="Phone" required>
+        <br>    
+            <label>Post :</label>
+            <input type="text" name="post" placeholder="Post" required>
+        <br>    
+        
+            <label>Salary :</label>
+            <input type="number" name="salary" placeholder="Salary" required>
+        <br>    
+            <label>Gender :</label>
+            <input type="radio" name="gender"required class="redi" value="Male"> <label>Male</label>
+            <input type="radio" name="gender"required class="redi" value="Female"> <label>Female</label>
+        <br>    
+            <label>Address :</label>
+            <input type="text" name="address" placeholder="Address" required>
+        <br>    
+            <label>Select State :</label>
+            <select name="state">
+                <option selected disabled>Select state</option>
+						<option value="Uttar Pradesh"> Uttar Pradesh</option>
+						<option value="Gujarat"> Gujarat</option>
+						<option value="Maharatra"> Maharatra</option>
+						<option value="Andhra Pradesh">Andhra Pradesh</option>
+						<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+						<option value="Assam">Assam</option>
+						<option value="Bihar">Bihar</option>
+						<option value="Goa">Goa</option>
+						<option value="Haryana">Haryana</option>
+						<option value="Himachal">Himachal Pradesh</option>
+						<option value="Jharkhand">Jharkhand</option>
+						<option value="Karnataka">Karnataka</option>
+						<option value="Kerala">Kerala</option>
+						<option value="Madhya Pradesh">Madhya Pradesh</option>
+						<option value="Manipur">Manipur</option>
+						<option value="Meghalaya">Meghalaya</option>
+						<option value="Mizoram">Mizoram</option>
+						<option value="Nagaland">Nagaland</option>
+						<option value="Odisha">Odisha</option>
+						<option value="Punjab">Punjab</option>
+						<option value="Rajasthan">Rajasthan</option>
+						<option value="Sikkim">Sikkim</option>
+						<option value="Tamil Nadu">Tamil Nadu</option>
+						<option value="Telangana">Telangana</option>
+						<option value="Tripura">Tripura</option>
+						<option value="Uttarakhand">Uttarakhand</option>
+						<option value="West Bengal">West Bengal </option>
+            </select>
+        <br>
+            <label for="img">Upload Image</label>
+            <input type="file" name="image" id="img" style="width: 300px;" required>
+        <br>
+
+        <input type="submit" value="submit" id="sum">    
+        </form>
+    </div>
+    </center>
+    <br><br>
+    {% if error == "no" %}
+    <script>
+        alert("submit successfully")
+        window.location =("{% url 'dashboard' %}")
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        alert("submit Not successfully")
+    </script>
+    {% endif %}
+</body>
+</html>

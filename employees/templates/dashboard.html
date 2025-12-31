@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            padding: 0;
+            margin: 0;
+            background-image: url('https://media.istockphoto.com/id/1307073611/photo/empty-warehouse-interior-illuminated-by-white-neon-lights.jpg?s=612x612&w=0&k=20&c=XKPr7aQ9_4YylojzFN8BxgF--H9Tr24p-akZG1L2slg=');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .head{
+            padding: 5px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            background-color: rgb(250, 181, 61);
+            border-block-end: 2px solid white;
+            border-radius: 8px;
+            position: sticky;
+            top: 0px;
+            font-size: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .same{
+            height: 120px;
+            width: 400px;
+            color: white;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 33px;
+            text-align: center;
+            padding: 18px 8px;
+          
+        }
+        .same:hover{
+            box-shadow: 0 5px 5px 4px rgb(229, 227, 227);
+            transform: translate(5px);
+            background-color: rgb(189, 2, 2); 
+        }
+        .same a{
+            text-decoration: none;
+            background-color: lime;
+            color: black;
+            font-size: 30px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 5px 30px ;
+        }
+
+        .same a:hover{
+            background-color: rgb(4, 188, 4);
+           
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="head">Employee Management System Dashboard</h1>
+    <center>
+        <div class="same">
+            <h1>Add-Recoards</h1><br>
+            <a href="{% url 'add_recoards' %}">GO</a>
+        </div>
+
+        <div class="same">
+            <h1>View-Recoards</h1><br>
+            <a href="{% url 'view_recoards' %}">GO</a>
+        </div>
+
+        <div class="same">
+            <h1>View-Feedbacks</h1><br>
+            <a href="{% url 'view_feedback' %}">GO</a>
+        </div>
+
+        <div class="same">
+        <h1>Edit / Delete </h1><br>
+        <a href="{% url 'edit_recoards' %}">GO</a>
+        </div>
+
+        <div class="same">
+        <h1>New Password </h1><br>
+        <a href="{% url 'change_password' %}">GO</a>
+        </div>
+
+        <div class="same">
+            <h1>Logout</h1><br>
+            <a href="{% url 'logout' %}">logout</a>
+        </div>
+    </center>
+    
+    <br><br>
+</body>
+</html>

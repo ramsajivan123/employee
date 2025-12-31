@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-image: url('https://thumbs.dreamstime.com/b/conversation-icon-abstract-blue-background-illustration-digital-texture-design-concept-dark-grunge-elegant-paint-modern-162452696.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 700px;
+        }
+        .feedback{
+            height: 470px;
+            width: 620px;
+            margin-top: 50px;
+            margin-left: 50px;
+            border-radius: 15px;
+           background-color: rgba(206, 204, 204, 0.698);
+            border: 1px solid black;
+        }
+        .feedback:hover{
+            box-shadow: 0 4px 6px rgb(3, 11, 242);
+        }
+        input{
+            color: rgb(7, 0, 150);
+            height: 35px;
+            width: 400px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            margin-top: 35px;
+            padding-left: 14px;
+            font-size: 20px;
+        }
+        label{
+            margin-left: 30px;
+            font-size: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(1, 1, 1);
+            text-shadow: 0.5px 0.5px rgb(3, 48, 247);
+        }
+        textarea{
+            margin-left: 180px;
+            width: 400px;
+            padding-left: 10px;
+            font-size: 20px;
+        }
+        #sum{
+            margin-left: 270px;
+            height: 40px;
+            width: 120px;
+            background-color: rgb(67, 244, 2);
+            color: rgb(1, 1, 1);
+            border: 1px solid black;
+            font-size: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding-right: 10px;
+        }
+         #sum:hover{
+            background-color: lime;
+            color: rgb(0, 0, 0);
+            
+        }
+        h1{
+            text-align: center;
+            font-size: 45px;
+            font-family: sans-serif;
+            padding-top: 20px;
+            color: rgb(255, 77, 0);
+            text-shadow: 2px 2px black;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navigation.html' %}
+
+    <div class="feedback">
+        <h1>Feedback</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label>Full Name : </label>
+            <input type="text" name="fname"placeholder="Enter your Name"required >
+        <br>   
+            <label>Email :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+            <input type="email" name="email"placeholder="Enter your Email ID"required >
+        <br> <br>   
+            <label>Feedback : </label> <br>  
+            <textarea rows="4" cols="50" name="feedback"></textarea>
+        <br>
+            <input type="submit" value="Save" id="sum">
+        </form>
+    </div>
+
+    {% include 'footer.html' %}
+    {% if error == "no" %}
+    <script>
+        alert("Thank you for give me feedback");
+        window.location = ("{% url 'index' %}")
+    </script>
+    {% endif %}
+
+    {% if error == "yes" %}
+    <script>
+        alert("Please give me feedback");
+    </script>
+    {% endif %}
+    
+
+
+</body>
+</html>
